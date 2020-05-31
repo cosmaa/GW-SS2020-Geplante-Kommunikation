@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Wege zur geplanten Kommunikation\newline GW-SS2020 }
+\author{Constanze Maaß}
+\date{\today}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{pgffor}
+\usepackage{filecontents}
+
+\pagenumbering{gobble}
+
+\newenvironment{MyColorPar}[1]{
+\color{#1}
+}
+
+
+\begin{document}
+
+\maketitle
+
+\input{sections/0_title}
+
+\newpage
+\tableofcontents{}
+\newpage
+
+
+\pagenumbering{arabic}
+\begin{center}
+   \textit{ Die Namen der Mitbewohner wurden aus Gründen geändert ;) }
+\end{center}
+
+
+\foreach \i in {1,2,3,4,5,6} {
+    \edef\FileName{sections/aufgabe\i}
+    \IfFileExists{\FileName}{ 
+    \vspace{2em}
+       \input{\FileName}
+    }
+}
+
+
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
