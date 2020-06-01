@@ -1,34 +1,40 @@
-\documentclass{article}
+\documentclass[a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 
 \title{Wege zur geplanten Kommunikation\newline GW-SS2020 }
 \author{Constanze Maaß}
 \date{\today}
-
+\usepackage{calc}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage[ngerman]{babel}
 \usepackage{pgffor}
-\usepackage{filecontents}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tabularx,ragged2e,booktabs,caption,filecontents,hyperref}
+\newcolumntype{C}[1]{>{}m{#1}}
+\renewcommand\tabularxcolumn[1]{{#1}}
 
-\pagenumbering{gobble}
+\definecolor{mycolor}{rgb}{255, 000, 000}
+
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+
 
 \newenvironment{MyColorPar}[1]{
 \color{#1}
 }
 
-
 \begin{document}
 
 \maketitle
-
+\pagenumbering{global}
 \input{sections/0_title}
-
 \newpage
+\pagenumbering{}
 \tableofcontents{}
+\pagenumbering{global}
 \newpage
-
 
 \pagenumbering{arabic}
 \begin{center}
@@ -36,18 +42,13 @@
 \end{center}
 
 
-\foreach \i in {1,2,3,4,5,6} {
+\foreach \i in {1,2,4} {
     \edef\FileName{sections/aufgabe\i}
     \IfFileExists{\FileName}{ 
-    \vspace{2em}
        \input{\FileName}
     }
 }
 
-
-
-\newpage
-
-\bibliographystyle{plain}
-\bibliography{references}
+\section{Abschluss}
+Nach einem positiven Verlauf des Gesprächs, würden wir das Rad ausprobieren und nach 2 Wochen resümieren ob es was gebracht hat oder nicht.
 \end{document}
